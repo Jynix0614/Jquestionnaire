@@ -4,8 +4,8 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
-
+//import locale from 'element-ui/lib/locale/lang/en' // lang i18n
+import locale from 'element-ui/lib/locale/lang/zh-CN'
 import '@/styles/index.scss' // global css
 
 import App from './App'
@@ -14,12 +14,15 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-import resetForm from '@/utils/resetForm'//清空表单
-Vue.prototype$resetForm = resetForm;
-import myconfirm from '@/utils/myconfirm'//信息再次确认
-Vue.prototype$myconfirm = myconfirm;
-import objCoppy from '@/utils/objCoppy'//对象快速复制
-Vue.prototype$objCoppy = objCoppy;
+//清空表单
+import resetForm from '@/utils/resetForm'
+Vue.prototype.$resetForm = resetForm;
+//信息提示
+import myconfirm from '@/utils/myconfirm'
+Vue.prototype.$myconfirm = myconfirm;
+//对象的快速复制
+import objCoppy from '@/utils/objCoppy'
+Vue.prototype.$objCoppy = objCoppy;
 
 /**
  * If you don't want to use mock-server

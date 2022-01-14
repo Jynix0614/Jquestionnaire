@@ -106,10 +106,13 @@ export default {
       })
     },
     handleLogin() {
+      //表单验证
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
+          //调用store里面的modules里面的user模块中的login方法
           this.$store.dispatch('user/login', this.loginForm).then(() => {
+            //路由跳转，进入全局守卫路由
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {

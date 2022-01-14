@@ -1,10 +1,11 @@
 <template>
   <el-dialog
-  top = "1vh"
+    top="1vh"
     :title="title"
     :visible.sync="visible"
     :width="width + 'px'"
     :before-close="onClose"
+    :close-on-click-modal="false"
   >
     <div class="container" :style="{ height: height + 'px' }">
       <slot name="content"></slot>

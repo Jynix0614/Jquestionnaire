@@ -17,10 +17,33 @@ import org.springframework.web.bind.annotation.*;
  * @date 2022/1/13 14:51
  */
 @RestController
+@RequestMapping("/api/user")
 public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
 
+    /**
+     * 用户登录
+     */
+    @PostMapping("/login")
+    public ResultVo login(@RequestBody SysUser sysUser){
+        QueryWrapper<SysUser> query = new QueryWrapper<>();
+        query.lambda().eq(SysUser::getUsername,sysUser.getUsername())
+                .eq(SysUser::getPassword,sysUser.getPassword());
+        SysUser one = sysUserService.getOne(query);
+        if(one == null){
+            return ResultUtils.error("用户名或密码错误！");
+        }
+        return ResultUtils.success("登陆成功！",one.getUserId());
+    }
+    /**
+     * 获取用户信息
+     */
+    @GetMapping("/getInfo")
+    public ResultVo getInfo(Long userId){
+        SysUser sysUser = sysUserService.getById(userId);
+        return ResultUtils.success("查询成功！",sysUser.getUsername());
+    }
     /**
      * 新增
      */
@@ -75,7 +98,9 @@ public class SysUserController {
         page.setCurrent(userParm.getCurrentPage());
         page.setSize(userParm.getPageSize());
         //构造查询条件
-        IPage<SysUser> list = sysUserService.page(page);
+        QueryWrapper<SysUser> query = new QueryWrapper<>();
+        query.lambda().like(SysUser::getUsername,userParm.getUsername());
+        IPage<SysUser> list = sysUserService.page(page,query);
         return ResultUtils.success("查询成功！",list);
     }
 }

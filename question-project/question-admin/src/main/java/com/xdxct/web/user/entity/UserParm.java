@@ -15,4 +15,6 @@ public class UserParm implements Serializable {
     private Long currentPage;
     //页容量
     private Long pageSize;
+
+    private String username;
 }
