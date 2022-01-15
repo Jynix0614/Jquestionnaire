@@ -1,0 +1,29 @@
+#端口号配置
+server:
+  port: 8099
+#数据库连接配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/question-project?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+
+
+web:
+  uploadpath: D:/images/  #图片上传的路径
+  load-path: file:D://images/ #图片访问、加载的路径
+
+#mybatis plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #配置mybatis plus 在更新时只更新非空和非NULL的字段
+      update-strategy: not_empty
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd} [%thread] %-5level %logger- %msg%n'

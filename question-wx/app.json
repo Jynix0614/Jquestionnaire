@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/mypage/maypage",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTitleText": "象帝先问卷",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "color": "#8a8a8a",
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home_select.png"
+    },
+    {
+      "pagePath": "pages/mypage/maypage",
+      "text": "我的",
+      "iconPath": "images/my.png",
+      "selectedIconPath": "images/my_select.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
