@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.xdxct.web.sys_paper.entity.SysPaper;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author 姜瑜欣
@@ -30,6 +32,6 @@ public class SysQuestion implements Serializable {
     //序号
     private Long questionOrder;
     //问卷对应的试题列表,不属于问卷表，需要排除
-//    @TableField(exist = false)
-//    private List<SysPaper> listPaper;
+    @TableField(exist = false)
+    private List<SysPaper> listPaper;
 }

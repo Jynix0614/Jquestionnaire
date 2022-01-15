@@ -28,7 +28,7 @@ public class SysQuestionController {
      * 新增问卷
      */
     @PostMapping
-    public ResultVo add(SysQuestion sysQuestion){
+    public ResultVo add(@RequestBody SysQuestion sysQuestion){
         boolean b = sysQuestionService.save(sysQuestion);
         if(b){
             return ResultUtils.success("新增问卷成功！");
@@ -72,7 +72,7 @@ public class SysQuestionController {
         QueryWrapper<SysQuestion> query = new QueryWrapper<>();
         //模糊查询
         if (StringUtils.isNotEmpty(questionParm.getQuestionTitle())){
-            query.lambda().like(SysQuestion::getQuestionStatus,questionParm.getQuestionTitle());
+            query.lambda().like(SysQuestion::getQuestionTitle,questionParm.getQuestionTitle());
         }
         //排序
         query.lambda().orderByAsc(SysQuestion::getQuestionOrder);

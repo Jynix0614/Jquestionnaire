@@ -88,7 +88,7 @@ export const constantRoutes = [
         path: '/paper',
         name: 'paper',
         component: () => import('@/views/paper/paperList'),
-        meta: { title: '试题列表', icon: 'el-icon-s-claim' }
+        meta: { title: '试题管理', icon: 'el-icon-s-claim' }
       }
     ]
   },

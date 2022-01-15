@@ -8,10 +8,10 @@
       :inline="true"
       size="normal"
     >
-      <el-form-item>
+      <el-form-item label="账户">
         <el-input v-model="parms.username"></el-input>
       </el-form-item>
-      <el-form-item>
+      <el-form-item >
         <el-button icon="el-icon-search" @click="searchBtn">搜索</el-button>
         <el-button style="color: #ff7670" icon="el-icon-close" @click="resetBtn"
           >重置</el-button
@@ -26,8 +26,8 @@
       <el-table-column prop="username" label="账户"> </el-table-column>
       <el-table-column prop="phone" label="电话"> </el-table-column>
       <el-table-column prop="email" label="邮箱"> </el-table-column>
-      <el-table-column align="center" width="180" label="操作">
-        <template slot-scope="scope">
+      <el-table-column align="center" width="180" label="操作" v-if="parms.username !== 'admin'">
+        <template slot-scope="scope" >
           <el-button
             type="primary"
             size="small"
@@ -186,7 +186,6 @@ export default {
     },
     //页容量改变时触发
     sizeChange(val) {
-      console.log(val);
       this.parms.pageSize = val;
       this.parms.currentPage = 1;
       //重新获取列表
@@ -194,7 +193,6 @@ export default {
     },
     //页数改变时触发
     currentChange(val) {
-      console.log(val);
       this.parms.currentPage = val;
       //重新获取列表
       this.getList();
