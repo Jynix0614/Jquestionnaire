@@ -5,9 +5,9 @@
   <view class='item' wx:for="{{tableList}}" wx:key="index">
     <!-- 左侧图片 -->
     <!-- <image class="images" src="../../images/home.png">picture</image> -->
-    <!-- <image class="images" src="{{item.questionImg}}"></image> -->
+    <image class="images" src="{{item.questionImg}}"></image>
     <!-- 右侧问卷信息 -->
-    <view class="item-right" >
+    <view class="item-right" data-questionId="{{item.questionId}}" bindtap="gotoDetail">
     <view class="item-title">{{item.questionTitle}}</view>
     <view class="item-desc">{{item.questionDesc}}</view>
     <view class="item-join">参与人数:{{item.joinCount}}</view>

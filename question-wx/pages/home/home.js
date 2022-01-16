@@ -19,7 +19,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('执行onLoad')
+    this.getHomeList()
+    //数据加载完后，停止下拉刷新
+    wx.stopPullDownRefresh({
+      success: (res) => {},
+    })
   },
 
 
@@ -34,13 +39,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //清空数据,响应式赋值，页面才会跟着变化
-    this.setData({
-      tableList:[],
-      total:0,
-    })
-    //调用列表
-    this.getHomeList()
+    console.log('执行onShow')
+    // //清空数据,响应式赋值，页面才会跟着变化
+    // this.setData({
+    //   tableList:[],
+    //   total:0,
+    // })
+    // //调用列表
+    // this.getHomeList()
   },
 
   /**
@@ -61,14 +67,36 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log('下拉刷新')
+    //从第一页开始加载，把列表里面的数据清空
+    this.data.parms.currentPage = 1
+    this.setData({
+      tableList:[]
+    })
+    //重新加载
+    this.onLoad()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('上拉触底')
+    //判断是否还有下一页，若有，继续加载数据；若无，停止加载并提示信息
+    let that = this
+    // 计算总页数
+    let totalPage = Math.ceil(that.data.total / that.data.parms.pageSize)
+    if(that.data.parms.currentPage >= totalPage){
+      //没有下一页了
+      wx.showToast({
+        title: '没有更多数据了',
+      })
+    }else{
+      that.setData({
+        currentPage:that.data.parms.currentPage++
+      })
+      that.onLoad()
+    }
   },
 
   /**
@@ -98,5 +126,12 @@ Page({
       })
       console.log(that.data)
     }
+  },
+
+  gotoDetail:function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '../detail/detail?questionId=' + e.currentTarget.dataset.questionid,
+    })
   }
 })

@@ -1,0 +1,48 @@
+/* pages/detail/detail.wxss */
+.detailcontainer{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.detail-item{
+  display: flex;
+  padding: 30rpx 10rpx 40rpx 20rpx;
+}
+.images{
+  height: 120rpx;
+  width: 120rpx;
+}
+.item-right{
+  padding-left: 15rpx;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.item-title{
+  font-size: 36rpx;
+  color: #000000;
+}
+.item-desc{
+  padding-top: 15rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+.point{
+  height: 15rpx;
+  background-color: #e5e5e5;
+}
+.btn-item{
+  margin-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+.btn{
+  /* 强制使用自定义样式 */
+  width: 75%!important;
+  background-color: #1296db;
+  color: #FFF;
+}

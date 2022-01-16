@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xdxct.wxapi.sys_paper_choice.mapper.SysPaperChoiceMapper">
+    <select id="getListPaperChoice" resultType="com.xdxct.wxapi.sys_paper_choice.entity.SysPaperChoice">
+        select  sp.question_id,spc.*,count(ac.choice_id) as total
+        from  sys_paper as sp
+        right join sys_paper_choice as spc  on sp.paper_id = spc.paper_id
+        left join answer_paper_choice as ac on ac.choice_id = spc.choice_id
+        where sp.question_id =#{questionId}
+        GROUP BY spc.choice_id
+    </select>
+</mapper>

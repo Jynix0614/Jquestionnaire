@@ -1,0 +1,19 @@
+<!--pages/detail/detail.wxml-->
+<!--问卷详情页-->
+<view class="detailcontainer">
+  <view class="detail-item">
+    <image class="images" src='{{questionImg}}'></image>
+
+    <view class="item-right">
+      <view class="item-title">{{questionTitle}}</view>
+      <view class="item-desc">{{questionDesc}}</view>
+    </view>
+  </view>
+  <!-- 分隔符 -->
+  <view class="point"></view>
+  <!-- 按钮 -->
+  <view class="btn-item">
+  <button wx:if="{{status== '0'}}" class="btn">开始答卷</button>
+  <button wx:if="{{status== '1'}}" class="btn">答卷结束</button>
+  </view>
+</view>

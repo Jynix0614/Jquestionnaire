@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xdxct.wxapi.question.mapper.SysQuestionMapper">
+    根据questionId查询所有的试卷
     <select id="getList" resultType="com.xdxct.wxapi.question.entity.SysQuestion">
         select sq.*,(select count(openid) from answer_question as aq where aq.question_id = sq.question_id) as join_count
         from sys_question as sq

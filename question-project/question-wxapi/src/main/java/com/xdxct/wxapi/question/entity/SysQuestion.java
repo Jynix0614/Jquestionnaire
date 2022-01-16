@@ -33,6 +33,9 @@ public class SysQuestion implements Serializable {
     //参与人数
     @TableField(exist = false)
     private Long joinCount;
+    //是否答卷
+    @TableField(exist = false)
+    private String status;
     //问卷对应的试题列表,不属于问卷表，需要排除
 //    @TableField(exist = false)
 //    private List<SysPaper> listPaper;

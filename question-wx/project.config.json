@@ -47,7 +47,7 @@
     "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.4",
+  "libVersion": "2.21.3",
   "appid": "wx81a55519046b458c",
   "projectname": "question-wx",
   "debugOptions": {

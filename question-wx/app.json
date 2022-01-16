@@ -1,9 +1,10 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/detail/detail",
+    "pages/answer/answer",
     "pages/mypage/maypage",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
