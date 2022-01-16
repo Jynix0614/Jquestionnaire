@@ -1,1 +1,56 @@
-/* pages/home/home.wxss */
+/* 首页 */
+.homecontainer {
+  height: 100%;
+  display: flex;
+  /* 弹性盒子模型，默认横向排列 */
+  flex-direction: column;
+  /* 竖直排列 */
+  box-sizing: border-box;
+}
+
+.item {
+  display: flex;
+  padding: 50rpx 20rpx;
+  align-items: center;
+  border-bottom:1px solid #e8eaec;
+}
+
+.images {
+  width: 140rpx;
+  height: 140rpx;
+  border: 1px solid #e8eaec;
+  border-radius: 50%;
+}
+
+.item-right{
+  display: flex;
+  /* 弹性占满 */
+  flex: 1;
+  flex-direction: column;
+  padding-left: 15rpx;
+}
+
+.item-title{
+  font-size: 36rpx;
+  color: #000000;
+}
+
+.item-desc{
+  padding-top: 15rpx;
+  font-size: 28rpx;
+  color: #707070;
+  /* 缩略文本显示 */
+  display:-webkit-box;
+  -webkit-line-clamp:1;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -webkit-box-orient:vertical;
+  word-break:break-all;
+}
+
+.item-join{
+  padding-top: 15rpx;
+  font-size: 20rpx;
+  color: #707070;
+  text-align: right;
+}

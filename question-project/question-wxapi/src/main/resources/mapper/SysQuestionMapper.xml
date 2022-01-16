@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xdxct.wxapi.question.mapper.SysQuestionMapper">
+    <select id="getList" resultType="com.xdxct.wxapi.question.entity.SysQuestion">
+        select sq.*,(select count(openid) from answer_question as aq where aq.question_id = sq.question_id) as join_count
+        from sys_question as sq
+    </select>
+    <select id="getMyQuestionList" resultType="com.xdxct.wxapi.question.entity.SysQuestion">
+        select   syq.question_id,syq.question_title,syq.question_desc,syq.question_img,syq.question_order,
+        (select count(openid) from answer_question  as sq  where sq.question_id = syq.question_id) as join_count
+
+        from  answer_question as aq
+
+        left join sys_question as syq on  aq.question_id = syq.question_id
+
+        where aq.openid =#{openid}
+
+        order by syq.question_order asc
+    </select>
+</mapper>
