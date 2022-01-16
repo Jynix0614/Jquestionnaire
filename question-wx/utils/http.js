@@ -13,7 +13,7 @@ const requsetData = (url, method, parm) => {
       url: app.globalData.url + url, //请求接口地址
       data: parm,
       header: {
-        'content-type': 'application/x-www-form-urlencoded', //JSON格式传输
+        'content-type': 'application/json', //JSON格式传输
         'token': token
       },
       success(res) {

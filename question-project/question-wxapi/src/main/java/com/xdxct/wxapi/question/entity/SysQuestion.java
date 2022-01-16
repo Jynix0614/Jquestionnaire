@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.xdxct.wxapi.sys_paper.entity.SysPaper;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -37,6 +38,6 @@ public class SysQuestion implements Serializable {
     @TableField(exist = false)
     private String status;
     //问卷对应的试题列表,不属于问卷表，需要排除
-//    @TableField(exist = false)
-//    private List<SysPaper> listPaper;
+    @TableField(exist = false)
+    private List<SysPaper> listPaper;
 }

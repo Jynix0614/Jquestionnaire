@@ -10,3 +10,8 @@ export async function getHomeListApi(parm){
 export async function getDetailsApi(parm){
   return await http.GET("/wxapi/home/getDetails",parm)
 }
+
+//根据问卷id查询试题列表
+export async function getPaperListApi(parm){
+  return await http.GET("/wxapi/home/getPaperList",parm)
+}

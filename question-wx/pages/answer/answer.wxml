@@ -1,2 +1,43 @@
 <!--pages/answer/answer.wxml-->
-<text>pages/answer/answer.wxml</text>
+<view class="answercontainer">
+  <form>
+    <view class="item" wx:for="{{paperList}}" wx:key="index" wx:for-item='paper'>
+      <!-- 标题 -->
+      <view class="title">
+        {{index+1+'、'+paper.paperTitle}}
+      </view>
+      <!-- 试题选项 -->
+      <view class="choiceList">
+        <!-- 判断单选 多选，单文本 多文本 -->
+        <!-- 单选 -->
+        <radio-group wx:if="{{paper.paperType == '1'}}">
+          <label class="radioClass" wx:for="{{paper.paperChoice}}" wx:for-item='choice' wx:key='choice.choiceId'>
+            <view>
+              <radio value="{{choice.choiceId}}"></radio>
+            </view>
+            <view class="radioText">
+              {{choice.choiceText}}
+            </view>
+          </label>
+        </radio-group>
+        <!-- 多选 -->
+        <radio-group wx:if="{{paper.paperType == '2'}}">
+          <label class="radioClass" wx:for="{{paper.paperChoice}}" wx:for-item='choice' wx:key='choice.choiceId'>
+            <view>
+              <checkbox value="{{choice.choiceId}}"></checkbox>
+            </view>
+            <view class="radioText">
+              {{choice.choiceText}}
+            </view>
+          </label>
+        </radio-group>
+        <!-- 单文本 -->
+        <input style="height: 100rpx;" wx:if="{{paper.paperType == '3'}}" />
+        <!-- 多文本 -->
+        <textarea wx:if="{{paper.paperType == '4'}}" ></textarea>
+      </view>
+    </view>
+    <view class="bottom-bar">
+    <button class="comit-btn">提交</button></view>
+  </form>
+</view>

@@ -1,1 +1,50 @@
 /* pages/answer/answer.wxss */
+.answercontainer{
+  height: 100%; 
+  width: 100%;
+  background-color: #F0F0F0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 125rpx;
+}
+.item{
+background-color: #FFF;
+margin:25rpx;
+border-radius: 20rpx;
+padding: 25rpx;
+}
+.title{
+  border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 20rpx;
+  color: #333333;
+}
+.choiceList{
+  color: #666666;
+  display: flex;
+  flex-direction: column;
+}
+.radioClass{
+  display: flex;
+  padding: 10rpx;
+}
+.radioText{
+  padding-left: 10rpx;
+}
+.bottom-bar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #F0F0F0;
+}
+.comit-btn{
+  width: 90%!important;
+  background-color: #1296db;
+  color: #FFF;
+  margin-bottom: 30rpx;
+  z-index: 999;
+}

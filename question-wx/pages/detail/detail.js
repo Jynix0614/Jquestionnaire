@@ -98,7 +98,7 @@ Page({
   },
 
   gotoAnswer: function (e) {
-    console.log(e)
+    console.log(e+'_____________')
     wx.navigateTo({
       url: '../answer/answer?questionId=' + e.currentTarget.dataset.questionid,
     })

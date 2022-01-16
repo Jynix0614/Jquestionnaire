@@ -1,3 +1,5 @@
+import { getPaperListApi } from "../../api/home.js"
+
 // pages/answer/answer.js
 Page({
 
@@ -5,16 +7,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    questionId: '',
+    paperList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('答卷页')
+    console.log(options)
+    this.setData({
+      questionId: options.questionId
+    })
+    let parm ={
+      questionId:options.questionId
+    }
+    this.getPaperList(parm)
   },
 
+  async getPaperList(parm){
+    let that = this
+    let res = await getPaperListApi(parm)
+    if(res && res.code==200){
+      that.setData({
+        paperList:res.data.listPaper
+      })
+      console.log(that.data.paperList)
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
