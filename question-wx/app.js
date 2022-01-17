@@ -37,8 +37,8 @@ App({
   //全局数据存储
   globalData: {
     userInfo: null,
-    //url:'http://localhost:8099',//域名
-    url:'http://172.24.240.1:8099',//域名
+    //url:'http://localhost:8099',//本机测试
+    url:'http://172.18.20.145:8099',//局域网
     openid:'',
     session_key:''
   }

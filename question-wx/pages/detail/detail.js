@@ -26,15 +26,18 @@ Page({
   onLoad: function (options) {
     console.log('详情页')
     console.log(options)
-    let parm = {
-      questionId: options.questionId,
-      openId: app.globalData.openid
-    }
-    this.getDetails(parm)
+    this.setData({
+      questionId:options.questionId
+    })
+    
   },
 
-  async getDetails(parm) {
+  async getDetails() {
     let that = this
+    let parm = {
+      questionId: that.data.questionId,
+      openId: app.globalData.openid
+    }
     let res = await getDetailsApi(parm);
     if (res && res.code == 200) {
       that.setData({
@@ -42,7 +45,7 @@ Page({
         questionDesc: res.data.questionDesc,
         questionTitle: res.data.questionTitle,
         questionImg: res.data.questionImg,
-        status: res.data.status
+        status: res.data.questionStatus
       })
     }
 
@@ -59,7 +62,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('測試')
+    this.getDetails()
   },
 
   /**
@@ -98,7 +102,6 @@ Page({
   },
 
   gotoAnswer: function (e) {
-    console.log(e+'_____________')
     wx.navigateTo({
       url: '../answer/answer?questionId=' + e.currentTarget.dataset.questionid,
     })

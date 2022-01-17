@@ -12,6 +12,7 @@ const requsetData = (url, method, parm) => {
     wx.request({
       url: app.globalData.url + url, //请求接口地址
       data: parm,
+      method:method,
       header: {
         'content-type': 'application/json', //JSON格式传输
         'token': token

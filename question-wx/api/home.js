@@ -15,3 +15,8 @@ export async function getDetailsApi(parm){
 export async function getPaperListApi(parm){
   return await http.GET("/wxapi/home/getPaperList",parm)
 }
+
+//问卷提交
+export async function saveCommitApi(parm){
+  return await http.POST("/wxapi/home/saveCommit",parm)
+}

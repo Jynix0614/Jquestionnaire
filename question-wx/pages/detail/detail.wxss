@@ -46,3 +46,9 @@
   background-color: #1296db;
   color: #FFF;
 }
+.done-btn{
+  /* 强制使用自定义样式 */
+  width: 75%!important;
+  background-color: #7a7a7a;
+  color: #FFF;
+}

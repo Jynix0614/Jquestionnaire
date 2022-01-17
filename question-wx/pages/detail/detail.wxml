@@ -14,6 +14,6 @@
   <!-- 按钮 -->
   <view class="btn-item">
   <button wx:if="{{status== '0'}}" class="btn" data-questionId="{{questionId}}" bindtap="gotoAnswer">开始答卷</button>
-  <button wx:if="{{status== '1'}}" class="btn" bindtap="hasAnswer">答卷结束</button>
+  <button wx:if="{{status== '1'}}" class="done-btn" bindtap="hasAnswer">已完成作答</button>
   </view>
 </view>

@@ -14,7 +14,7 @@ module.exports = {
    */
   sidebarLogo: true,
 
-  baseUrl: 'http://172.24.240.1:8089',
+  baseUrl: 'http://172.18.20.145:8089',
 
-  imageUrl:'http://172.24.240.1:8089/api/upload/uploadImage'
+  imageUrl:'http://172.18.20.145:8089/api/upload/uploadImage'
 }

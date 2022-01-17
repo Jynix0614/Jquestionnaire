@@ -7,6 +7,7 @@ import com.sun.jndi.cosnaming.CNCtx;
 import com.xdxct.utils.ResultUtils;
 import com.xdxct.utils.ResultVo;
 import com.xdxct.wxapi.answer_question.entity.AnswerQuestion;
+import com.xdxct.wxapi.answer_question.entity.CommitParm;
 import com.xdxct.wxapi.answer_question.service.AnswerQuestionService;
 import com.xdxct.wxapi.question.entity.QuestionParm;
 import com.xdxct.wxapi.question.entity.SysQuestion;
@@ -16,9 +17,7 @@ import com.xdxct.wxapi.sys_paper.service.SysPaperService;
 import com.xdxct.wxapi.sys_paper_choice.entity.SysPaperChoice;
 import com.xdxct.wxapi.sys_paper_choice.service.SysPaperChoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,6 +37,7 @@ public class HomeController {
 
     @Autowired
     private SysPaperService sysPaperService;
+
     @Autowired
     private SysPaperChoiceService sysPaperChoiceService;
 
@@ -104,5 +104,15 @@ public class HomeController {
         //给问卷设置试题
         question.setListPaper(paperList);
         return ResultUtils.success("查询成功",question);
+    }
+
+
+    /**
+     * 保存问卷
+     */
+    @PostMapping("/saveCommit")
+    public ResultVo saveCommit(@RequestBody CommitParm parm){
+        answerQuestionService.saveCommit(parm);
+        return ResultUtils.success("提交成功！");
     }
 }
