@@ -6,5 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface SysPaperChoiceMapper extends BaseMapper<SysPaperChoice> {
+public interface SysPaperChoiceMapper extends BaseMapper<SysPaperChoice>{
+
 }

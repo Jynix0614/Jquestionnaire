@@ -13,6 +13,7 @@
     <span slot="footer" class="dialog-footer">
       <el-button type="danger" @click="onClose">取 消</el-button>
       <el-button type="primary" @click="onConfirm">确 定</el-button>
+      <el-button v-if="print" v-print="'#printTotal'">打 印</el-button>
     </span>
   </el-dialog>
 </template>
@@ -37,6 +38,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    print:{
+      type:Boolean,
+      default:false
+    }
   },
   methods: {
     onClose() {

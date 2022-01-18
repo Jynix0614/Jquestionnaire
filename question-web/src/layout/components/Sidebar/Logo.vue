@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       title: '问卷调查系统',
-      logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
+      //logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png',
+      logo:'http://abc.plaindesign.cn/image/logo.png'
     }
   }
 }

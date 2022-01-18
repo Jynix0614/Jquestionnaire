@@ -18,3 +18,8 @@ export async function editApi(parm){
 export async function deleteApi(parm){
     return await http.delete('/api/question',parm)
 }
+
+//统计查询
+export async function getTotalListApi(parm){
+    return await http.get('/api/question/getTotalList',parm)
+}

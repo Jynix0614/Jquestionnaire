@@ -23,7 +23,8 @@ Vue.prototype.$myconfirm = myconfirm;
 //对象的快速复制
 import objCoppy from '@/utils/objCoppy'
 Vue.prototype.$objCoppy = objCoppy;
-
+import Print from 'vue-print-nb'
+Vue.use(Print)
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

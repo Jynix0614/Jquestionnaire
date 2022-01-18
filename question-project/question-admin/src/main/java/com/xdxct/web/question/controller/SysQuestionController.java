@@ -8,9 +8,17 @@ import com.xdxct.utils.ResultVo;
 import com.xdxct.web.question.entity.QuestionParm;
 import com.xdxct.web.question.entity.SysQuestion;
 import com.xdxct.web.question.service.SysQuestionService;
+import com.xdxct.web.sys_paper.entity.SysPaper;
+import com.xdxct.web.sys_paper.service.SysPaperService;
+import com.xdxct.web.sys_paper_choice.entity.SysPaperChoice;
+import com.xdxct.web.sys_paper_choice.service.SysPaperChoiceService;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 姜瑜欣
@@ -23,6 +31,12 @@ import org.springframework.web.bind.annotation.*;
 public class SysQuestionController {
     @Autowired
     private SysQuestionService sysQuestionService;
+
+    @Autowired
+    private SysPaperChoiceService sysPaperChoiceService;
+
+    @Autowired
+    private SysPaperService sysPaperService;
 
     /**
      * 新增问卷
@@ -79,5 +93,34 @@ public class SysQuestionController {
 
         IPage<SysQuestion> list = sysQuestionService.page(page, query);
         return ResultUtils.success("查询成功！",list);
+    }
+
+    /**
+     * 问卷统计查询
+     */
+    @GetMapping("/getTotalList")
+    public ResultVo getTotalList(Long questionId){
+        //1、查询问卷详情
+        SysQuestion sysQuestion = sysQuestionService.getById(questionId);
+        //2、查询问卷的所有试题
+        QueryWrapper<SysPaper> query = new QueryWrapper<>();
+        query.lambda().eq(SysPaper::getQuestionId,questionId)
+                .orderByAsc(SysPaper::getPaperOrder);
+        List<SysPaper> paperList = sysPaperService.list(query);
+        //3查询试题对应的选项统计
+        List<SysPaperChoice> choiceList = sysPaperChoiceService.getListPaperChoice(questionId);
+        for (int i=0;i<paperList.size();i++){
+            List<SysPaperChoice> paperChoice = new ArrayList<>();
+            Long paperId = paperList.get(i).getPaperId();
+            choiceList.stream().filter(item -> item.getPaperId().equals(paperId)).forEach(item->{
+                SysPaperChoice choice = new SysPaperChoice();
+                BeanUtils.copyProperties(item,choice);
+                paperChoice.add(choice);
+            });
+            //设置单选、多选的选项
+            paperList.get(i).setPaperChoice(paperChoice);
+        }
+        sysQuestion.setListPaper(paperList);
+        return ResultUtils.success("查询成功",sysQuestion);
     }
 }
