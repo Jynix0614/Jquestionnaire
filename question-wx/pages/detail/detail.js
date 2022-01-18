@@ -36,17 +36,20 @@ Page({
     let that = this
     let parm = {
       questionId: that.data.questionId,
-      openId: app.globalData.openid
+      openid: app.globalData.openid
+      //openid:wx.getStorageSync('openid')
     }
     let res = await getDetailsApi(parm);
+    
     if (res && res.code == 200) {
       that.setData({
         questionId: res.data.questionId,
         questionDesc: res.data.questionDesc,
         questionTitle: res.data.questionTitle,
         questionImg: res.data.questionImg,
-        status: res.data.questionStatus
+        status: res.data.status
       })
+      console.log('显示数据',that.data)
     }
 
   },

@@ -23,4 +23,9 @@ public class SysPaperServiceImpl extends ServiceImpl<SysPaperMapper, SysPaper> i
 
     @Autowired
     private SysPaperChoiceService sysPaperChoiceService;
+
+    @Override
+    public List<SysPaper> getMyPaperList(Long questionId, String openid) {
+        return this.baseMapper.getMyPaperList(questionId,openid);
+    }
 }

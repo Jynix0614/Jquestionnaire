@@ -1,2 +1,18 @@
 <!--pages/mypage/maypage.wxml-->
-<text>pages/mypage/maypage.wxml</text>
+<view class="userInfo">
+  <open-data type="userAvatarUrl" class="userImg"></open-data>
+  <open-data type="userNickName"></open-data>
+</view>
+<view class="answerList">
+  <view wx:for="{{tableList}}" wx:key='index'>
+    <view class="item">
+      <!-- <image class="images" src="../../images/diaocha.png"></image> -->
+      <image class="images" src="{{item.questionImg}}"></image>
+      <view class="item-right" data-item="{{item}}" bindtap="gotoDetail">
+        <view class="item-title">{{item.questionTitle}}</view>
+        <view class="item-desc">{{item.questionDesc}}</view>
+        <view class="item-join">参与人数:{{item.joinCount}}</view>
+      </view>
+    </view>
+  </view>
+</view>

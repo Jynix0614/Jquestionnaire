@@ -18,4 +18,6 @@ public class QuestionParm implements Serializable {
 
     //问卷标题
     private String questionTitle;
+
+    private String openid;
 }

@@ -26,6 +26,7 @@ App({
               if(res.data && res.data.data.openid){
                 that.globalData.openid = res.data.data.openid
                 that.globalData.session_key = res.data.data.session_key
+                wx.setStorageSync('openid', res.data.data.openid)
                 console.log(that.globalData.openid,' ',that.globalData.session_key)
               }
             }

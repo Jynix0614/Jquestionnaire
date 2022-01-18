@@ -1,4 +1,4 @@
-/* pages/answer/answer.wxss */
+/* pages/myanswer/myanswer.wxss */
 .answercontainer{
   /* height: 100%;  */
   width: 100%;
@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding-bottom: 125rpx;
 }
 .item{
 background-color: #FFF;

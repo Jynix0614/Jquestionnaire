@@ -16,7 +16,7 @@
 
         left join sys_question as syq on  aq.question_id = syq.question_id
 
-        where aq.openid =#{openid}
+        where aq.openid = #{openid}
 
         order by syq.question_order asc
     </select>

@@ -27,4 +27,6 @@ public class SysPaper implements Serializable {
     //单选、多选题对应的选项,不属于 试题表，需要排除
     @TableField(exist =  false)
     private List<SysPaperChoice> paperChoice;
+    @TableField(exist = false)
+    private String paperValue;
 }

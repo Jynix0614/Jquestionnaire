@@ -4,6 +4,7 @@
     "pages/detail/detail",
     "pages/answer/answer",
     "pages/mypage/maypage",
+    "pages/myanswer/myanswer",
     "pages/index/index"
   ],
   "window":{

@@ -19,8 +19,13 @@ public class SysPaperChoice implements Serializable {
     private String choiceText;
     //序号
     private Long choiceOrder;
+
     @TableField(exist = false)
     private Long questionId;
     @TableField(exist = false)
     private Long total;
+
+    //选中的字段
+    @TableField(exist = false)
+    private Boolean checked;
 }

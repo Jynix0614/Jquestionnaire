@@ -1,0 +1,43 @@
+<!--pages/myanswer/myanswer.wxml-->
+<view class="answercontainer">
+  <form>
+    <view class="item" wx:for="{{paperList}}" wx:key="index" wx:for-item='paper'>
+      <!-- 标题 -->
+      <view class="title">
+        {{index+1+'、'+paper.paperTitle}}
+      </view>
+      <!-- 试题选项 -->
+      <view class="choiceList">
+        <!-- 判断单选 多选，单文本 多文本 -->
+        <!-- 单选 -->
+        <radio-group data-papertype="{{paper.paperType}}" data-paperid="{{paper.paperId}}" bindchange="selectChange" wx:if="{{paper.paperType == '1'}}">
+          <label class="radioClass" wx:for="{{paper.paperChoice}}" wx:for-item='choice' wx:key='choice.choiceId'>
+            <view>
+              <radio disabled checked="{{choice.checked}}" value="{{choice.choiceId}}"></radio>
+            </view>
+            <view class="radioText">
+              {{choice.choiceText}}
+            </view>
+          </label>
+        </radio-group>
+        <!-- 多选 -->
+        <checkbox-group data-papertype="{{paper.paperType}}" data-paperid="{{paper.paperId}}" bindchange="selectChange" wx:if="{{paper.paperType == '2'}}">
+          <label class="radioClass" wx:for="{{paper.paperChoice}}" wx:for-item='choice' wx:key='choice.choiceId'>
+            <view>
+              <checkbox disabled checked="{{choice.checked}}" value="{{choice.choiceId}}"></checkbox>
+            </view>
+            <view class="radioText">
+              {{choice.choiceText}}
+            </view>
+          </label>
+        </checkbox-group>
+        <!-- 单文本 -->
+        <input disabled data-papertype="{{paper.paperType}}" data-paperid="{{paper.paperId}}" 
+        value="{{paper.paperValue}}" style="height: 100rpx;" wx:if="{{paper.paperType == '3'}}"/>
+        <!-- 多文本 -->
+        <textarea 
+        disabled data-papertype="{{paper.paperType}}" data-paperid="{{paper.paperId}}"  value="{{paper.paperValue}}"  wx:if="{{paper.paperType == '4'}}"></textarea>
+      </view>
+    </view>
+  </form>
+</view>

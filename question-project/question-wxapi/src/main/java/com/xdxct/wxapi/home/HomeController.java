@@ -115,4 +115,25 @@ public class HomeController {
         answerQuestionService.saveCommit(parm);
         return ResultUtils.success("提交成功！");
     }
+
+    /**
+     * 查询试题回显
+     */
+    @GetMapping("/getMyPaperListShow")
+    public ResultVo getMyPaperListShow(String openid,Long questionId){
+        SysQuestion list = sysQuestionService.getMyPaperList(questionId,openid);
+        return ResultUtils.success("查询成功",list);
+    }
+    /**
+     * 查询我的列表
+     */
+    @GetMapping("/getMyQuestionList")
+    public ResultVo getMyQuestionList(QuestionParm questionParm){
+        //构造分页对象
+        IPage<SysQuestion> page = new Page<>();
+        page.setCurrent(questionParm.getCurrentPage());
+        page.setSize(questionParm.getPageSize());
+        IPage<SysQuestion> list = sysQuestionService.getMyQuestionList(page,questionParm.getOpenid());
+        return ResultUtils.success("我的列表查询成功",list);
+    }
 }

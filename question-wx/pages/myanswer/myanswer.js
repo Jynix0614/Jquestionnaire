@@ -1,4 +1,5 @@
-import { getPaperListApi,saveCommitApi } from "../../api/home.js"
+// pages/myanswer/myanswer.js
+import { getMyPaperListShowApi} from "../../api/home.js"
 const app = getApp()
 // pages/answer/answer.js
 Page({
@@ -27,14 +28,16 @@ Page({
       questionId:options.questionId
     })
     let parm ={
-      questionId:options.questionId
+      questionId:options.questionId,
+      openid:app.globalData.openid
+      // openid: wx.getStorageSync('openid')
     }
     this.getPaperList(parm)
   },
 
   async getPaperList(parm){
     let that = this
-    let res = await getPaperListApi(parm)
+    let res = await getMyPaperListShowApi(parm)
     if(res && res.code==200){
       that.setData({
         paperList:res.data.listPaper
@@ -131,7 +134,6 @@ Page({
 
   async submitBtn(e){
     this.data.answer.openid = app.globalData.openid
-    //this.data.answer.openid = wx.getStorageSync('openid')
     this.data.answer.questionId = this.data.questionId
     console.log(this.data.answer)
     let res = await saveCommitApi(this.data.answer)

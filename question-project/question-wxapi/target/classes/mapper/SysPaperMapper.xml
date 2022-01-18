@@ -3,5 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xdxct.wxapi.sys_paper.mapper.SysPaperMapper">
-
+    <select id="getMyPaperList" resultType="com.xdxct.wxapi.sys_paper.entity.SysPaper">
+        select  sp.*,ap.paper_value
+        from  answer_question as aq
+        left join sys_paper as sp on sp.question_id = aq.question_id
+        left join answer_paper as ap on sp.paper_id = ap.paper_id
+        where aq.openid =#{openid}  and aq.question_id =#{questionId}
+    </select>
 </mapper>

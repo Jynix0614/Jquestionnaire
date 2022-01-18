@@ -20,3 +20,13 @@ export async function getPaperListApi(parm){
 export async function saveCommitApi(parm){
   return await http.POST("/wxapi/home/saveCommit",parm)
 }
+
+//我的页面列表
+export async function  getMyQuestionListApi(params) {
+  return await http.GET("/wxapi/home/getMyQuestionList",params)
+}
+
+//试题回显
+export async function getMyPaperListShowApi(params) {
+  return await http.GET("/wxapi/home/getMyPaperListShow",params)
+}
