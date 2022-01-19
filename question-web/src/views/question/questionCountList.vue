@@ -66,7 +66,7 @@
             type="primary"
             size="normal"
             @click="lookBtn(scope.row)"
-            icon="el-icon-edit"
+            icon="el-icon-view"
           >查看结果</el-button>
         </template>
       </el-table-column>

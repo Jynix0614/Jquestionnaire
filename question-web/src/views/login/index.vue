@@ -69,7 +69,7 @@ export default {
       }
     }
     return {
-      logo:require('@/assets/logo-min.png'),
+      logo:require('@/assets/images/logo-min.png'),
       loginForm: {
         username: 'admin',
         password: '111111'

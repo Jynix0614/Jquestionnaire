@@ -33,6 +33,5 @@ public class loginController {
         String body = HttpRequest.get("https://api.weixin.qq.com/sns/jscode2session").form(map).body();
         JSONObject obj = JSON.parseObject(body);
         return ResultUtils.success("获取成功！",obj);
-
     }
 }
