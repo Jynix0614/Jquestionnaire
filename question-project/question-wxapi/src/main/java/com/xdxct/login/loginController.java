@@ -24,7 +24,6 @@ public class loginController {
     @RequestMapping("/wxLogin")
     public ResultVo wxLogin(@RequestParam("code") String code){
         Map<String,String> map = new HashMap<>();
-
         map.put("appid","wx81a55519046b458c");
         map.put("secret","fffb155fdd1ad2b080f4927bd8fac858");
         map.put("js_code",code);

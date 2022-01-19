@@ -19,6 +19,7 @@
   width: 140rpx;
   height: 140rpx;
   border: 1px solid #e8eaec;
+  padding: 5rpx 5rpx;
   border-radius: 50%;
 }
 

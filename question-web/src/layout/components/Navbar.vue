@@ -30,7 +30,7 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown> -->
-      <el-button @click.native="logout" style="display:block;background:#fff;">注销</el-button>
+      <el-button @click.native="logout" style="display:block;background:#fff;" class="logout-btn">注销</el-button>
     </div>
   </div>
 </template>
@@ -113,6 +113,12 @@ export default {
           background: rgba(0, 0, 0, .025)
         }
       }
+    }
+    .logout-btn{
+      margin-top:10px;
+      margin-right:10px;
+      color: #f00;
+
     }
 
     .avatar-container {

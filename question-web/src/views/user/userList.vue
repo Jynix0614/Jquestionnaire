@@ -26,19 +26,21 @@
       <el-table-column prop="username" label="账户"> </el-table-column>
       <el-table-column prop="phone" label="电话"> </el-table-column>
       <el-table-column prop="email" label="邮箱"> </el-table-column>
-      <el-table-column align="center" width="180" label="操作" v-if="parms.username !== 'admin'">
+      <el-table-column align="center" width="180" label="操作">
         <template slot-scope="scope" >
           <el-button
             type="primary"
             size="small"
             @click="editBtn(scope.row)"
             icon="el-icon-edit"
+            v-if="scope.row.username !== 'root'"
           ></el-button>
           <el-button
             type="danger"
             size="small"
             @click="deleteBtn(scope.row)"
             icon="el-icon-delete"
+            v-if="scope.row.username !== 'root'"
           ></el-button>
         </template>
       </el-table-column>

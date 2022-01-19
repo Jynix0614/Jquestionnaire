@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '象帝先问卷调查系统',
+  title: '象帝先问卷中心',
 
   /**
    * @type {boolean} true | false

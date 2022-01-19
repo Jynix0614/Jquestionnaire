@@ -327,14 +327,14 @@ export default {
   },
   data() {
     return {
-      rules:{
-        paperDataList:[
+      rules: {
+        paperDataList: [
           {
             trigger: "change",
             required: true,
             message: "不能为空",
           },
-        ]
+        ],
       },
       //问卷id
       questionId: "",
@@ -392,8 +392,20 @@ export default {
     },
     //弹框确认事件
     async onConfirm() {
+      console.log(
+        "this.customerFormModel.paperDataLis",
+        this.customerFormModel.paperDataList
+      );
       if (this.customerFormModel.paperDataList.length < 1) {
         this.$message.warning("请设计试题!");
+        return;
+      }
+      if (
+        this.customerFormModel.paperDataList.every(
+          (item) => item.paperTitle.trim() < 1
+        )
+      ) {
+        this.$message.warning("请填写试题内容!");
         return;
       }
       let res = await savePaperApi(this.customerFormModel.paperDataList);

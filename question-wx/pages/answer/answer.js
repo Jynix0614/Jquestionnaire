@@ -21,8 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('答卷页')
-    console.log(options)
+    console.log('答卷页',options)
     this.setData({
       questionId:options.questionId
     })
@@ -39,7 +38,7 @@ Page({
       that.setData({
         paperList:res.data.listPaper
       })
-      console.log(that.data.paperList)
+      console.log('获取paperList',that.data.paperList)
     }
   },
   /**
@@ -133,13 +132,35 @@ Page({
     this.data.answer.openid = app.globalData.openid
     //this.data.answer.openid = wx.getStorageSync('openid')
     this.data.answer.questionId = this.data.questionId
-    console.log(this.data.answer)
-    let res = await saveCommitApi(this.data.answer)
-    if(res && res.code  == 200){
-      console.log(res)
-      wx.navigateBack({
-        delta:1
-      })
+    console.log('开始打印答案')
+    console.log(this.data.answer.paperList)
+    console.log(this.data.paperList)
+    let isNUull = true
+    if(this.data.answer.paperList.length === this.data.paperList.length){
+      let res = await saveCommitApi(this.data.answer)
+      if(res && res.code  == 200){
+        console.log(res)
+        wx.navigateBack({
+          delta:1
+        })
+      }
+      
+    }else{
+      // for(let i=0; i<=this.data.answer.paperList.length-1;i++){
+      //   let row = this.data.answer.paperList[i]
+      //   if(row.paperType === ''){
+      //     console.log('空答案')
+      //   }
+      // }
+      this.showAlert()
     }
+  },
+
+  showAlert(){
+    wx.showToast({
+      title: '请全部作答',
+      duration: 500,
+      icon:'error'
+    })
   }
 })

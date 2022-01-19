@@ -3,6 +3,7 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
+         <img :src="logo" class="login-logo">
         <h3 class="title">象帝先问卷中心</h3>
       </div>
 
@@ -68,6 +69,7 @@ export default {
       }
     }
     return {
+      logo:require('@/assets/logo-min.png'),
       loginForm: {
         username: 'admin',
         password: '111111'
@@ -108,7 +110,8 @@ export default {
           //调用store里面的modules里面的user模块中的login方法
           this.$store.dispatch('user/login', this.loginForm).then(() => {
             //路由跳转，进入全局守卫路由
-            this.$router.push({ path: this.redirect || '/' })
+            // this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({ path:  '/' })
             this.loading = false
           }).catch(() => {
             this.loading = false
@@ -167,6 +170,10 @@ $cursor: #fff;
     border-radius: 5px;
     color: #454545;
   }
+  .login-logo{
+    width:50px;
+    height:50px;
+  }
 }
 </style>
 
@@ -212,13 +219,15 @@ $light_gray:#eee;
 
   .title-container {
     position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
 
     .title {
       font-size: 26px;
       color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
       font-weight: bold;
+      padding-left:10px;
     }
   }
 

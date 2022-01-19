@@ -2,16 +2,18 @@
 <!-- 视图容器，视作div-->
 <view class='homecontainer'>
   <!-- 表示问卷每一项，从左到右排列 -->
-  <view class='item' wx:for="{{tableList}}" wx:key="index">
-    <!-- 左侧图片 -->
+  <view class='item' wx:for="{{tableList}}" wx:key="index" wx:if="{{item.questionStatus == '1'}}">
+ <!-- 左侧图片 -->
     <!-- <image class="images" src="../../images/home.png">picture</image> -->
-    <image class="images" src="{{item.questionImg}}"></image>
+    <image class="images"  wx:if="{{item.questionStatus == '1'}}" src="{{item.questionImg}}"></image>
     <!-- 右侧问卷信息 -->
-    <view class="item-right" data-questionId="{{item.questionId}}" bindtap="gotoDetail">
-    <view class="item-title">{{item.questionTitle}}</view>
-    <view class="item-desc">{{item.questionDesc}}</view>
-    <view class="item-join">参与人数:{{item.joinCount}}</view>
-    </view>
+    <view class="item-right"  wx:if="{{item.questionStatus == '1'}}" data-questionId="{{item.questionId}}" bindtap="gotoDetail">
+    <view class="item-title"  wx:if="{{item.questionStatus == '1'}}" >{{item.questionTitle}}</view>
+    <view class="item-desc"  wx:if="{{item.questionStatus == '1'}}" >{{item.questionDesc}}</view>
+    <view class="item-join"   wx:if="{{item.questionStatus == '1'}}" >参与人数:{{item.joinCount}}</view>
+
+  </view>
+   
   </view>
 
 </view>
