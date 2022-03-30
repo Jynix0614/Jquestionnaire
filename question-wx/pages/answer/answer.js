@@ -125,7 +125,7 @@ Page({
     }else{
       list.push(obj)
     }
-    console.log(list)
+    console.log('yonghuxuanzhong',list)
   },
 
   async submitBtn(e){

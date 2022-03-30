@@ -29,6 +29,7 @@ App({
                 wx.setStorageSync('openid', res.data.data.openid)
                 console.log(that.globalData.openid,' ',that.globalData.session_key)
               }
+              console.log('获取OPENID',res.data.data.openid)
             }
           }
         })

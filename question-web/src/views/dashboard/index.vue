@@ -22,7 +22,12 @@
           ><a class="myherf" href="https://baomidou.com/">Mybatis-plus</a>
         </div>
         <div>
-          <span>前端框架：</span
+          <span>前端框架：
+            </span><a
+            class="myherf"
+            href="https://cn.vuejs.org/"
+            >vue文档</a
+          ><span> + </span
           ><a
             class="myherf"
             href="https://panjiachen.github.io/vue-element-admin-site/zh/"
@@ -100,7 +105,7 @@
         <div><span>页面跳转就会传参，但微信的传参有两种方式：</span></div>
         <div>
           <span
-            >一种是直接赋值，如this.username=username,这种是不会双向绑定的，需要刷新才会更新值。</span
+            >一种是直接赋值，如this.username=username，这种是不会双向绑定的，需要刷新才会更新值。</span
           >
         </div>
         <div><span>一种是调用set方法，这种是双向绑定的，无需刷新。</span></div>
